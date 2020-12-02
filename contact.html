@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>404 - The0Show</title>
+		<title>Contact - The0Show</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="The0Show's official website" />
@@ -37,7 +37,7 @@
 
 		<!-- Heading -->
 			<div id="heading" >
-				<h1>404</h1>
+				<h1>Contact</h1>
 			</div>
 
 		<!-- Main -->
@@ -45,14 +45,47 @@
 				<div class="inner">
 					<div class="content">
 						<header>
-							<h2>Well, that was uneventful.</h2>
+							<h2>Contact</h2>
 						</header>
-						<p>You see, we couldn't find what you were looking for.<br>Try one of the options below.</p>
-						<a href="index.html" class="button primary fit small">Go to the Home Page</a>
+						<h3>Discord</h3>
+						<input type="text" value="The0Show#8908" id="discord" readonly>
+						<button onclick="discord()" class="button primary fit small">Copy to Clipboard</button>
+						<script>
+							function discord() {
+							  var copyText = document.getElementById("discord");
+							  copyText.select();
+							  copyText.setSelectionRange(0, 99999)
+							  document.execCommand("copy");
+							  alert("Cortana has copied it for you, Master Chief.");
+							}
+						</script>
 						<br><br>
-						<a href="projects.html" class="button primary fit small">Go to the Projects Page</a>
+						<h3>Twitter</h3>
+						<input type="text" value="@The0Show94" id="twitter" readonly>
+						<button onclick="twitter()" class="button primary fit small">Copy to Clipboard</button>
+						<script>
+							function twitter() {
+							  var copyText = document.getElementById("twitter");
+							  copyText.select();
+							  copyText.setSelectionRange(0, 99999)
+							  document.execCommand("copy");
+							  alert("Cortana has copied it for you, Master Chief.");
+							}
+						</script>
 						<br><br>
-						<a href="igiveup.html" class="button primary fit small">Give Up</a>
+						<h3>Email</h3>
+						<h4>This form of contact is mainly for business purposes.</h4>
+						<input type="text" value="the0Show94@gmail.com" id="email" readonly>
+						<button onclick="email()" class="button primary fit small">Copy to Clipboard</button>
+						<script>
+							function email() {
+							  var copyText = document.getElementById("email");
+							  copyText.select();
+							  copyText.setSelectionRange(0, 99999)
+							  document.execCommand("copy");
+							  alert("Cortana has copied it for you, Master Chief.");
+							}
+						</script>
 					</div>
 				</div>
 			</section>
