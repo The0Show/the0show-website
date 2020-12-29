@@ -1,4 +1,4 @@
 # the0show-website
- The official GitHub repository for my website!
+The official GitHub repository for [my website](https://the0show.github.io)!
 
-To run the site, open `index.html` in your browser, or start a local server using whatever method you want. If you're using Python, just run `start.py`.
+You can find development info [on the wiki](https://github.com/The0Show/the0show.github.io/wiki).
