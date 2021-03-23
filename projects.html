@@ -124,6 +124,8 @@
 						
 							if(data[type][id].sourcecode) document.getElementById('sourcecode').className = 'button primary'
 							if(data[type][id].calltoaction) document.getElementById('calltoaction').className = 'button primary'
+
+							if(type === 'discord-bots') document.getElementById('calltoaction').innerHTML = '<i class="icon fa-plus"> </i> Invite'
 						});
 					}
 		
