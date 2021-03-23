@@ -25,8 +25,6 @@
 	
 				if(!id){
 					$.getJSON('./assets/json/projects.json', function(data) {
-						 //document.getElementById("onlineCount").innerHTML = data.presence_count;
-						 //document.getElementById("subCount").innerHTML = "0";
 						 $.each(data, function(i, f) {
 							var tblRow = `<header><h2>${f.name}</h2></header>`
 							$(tblRow).appendTo("#content");
@@ -40,7 +38,7 @@
 					   });
 				}
 	
-				if(id && type){
+				if(id){
 					$.getJSON('./assets/json/projects.json', function(data) {
 						var tblRow = `<header><h2>${data[type][id].name}${data[type][id].comingsoon ? ' (Coming Soon)' : ''}</h2> </header><p>${data[type][id].description}</p><div id="sc"></div><hr /><a href="${data[type][id].calltoaction}" id="calltoaction" class="button primary disabled"><i class="icon fa-download"> </i>Download</a> <a href="${data[type][id].sourcecode}" id="sourcecode" class="button primary disabled"><i class="icon fa-github"> </i>Source Code</a>`
 						$(tblRow).appendTo("#content");
