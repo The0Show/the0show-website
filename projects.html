@@ -13,6 +13,49 @@
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+		<script>
+			const params = new URLSearchParams(window.location.search);
+			var id = params.get("id")
+			var type = params.get("type")
+	
+			$(function() {
+	
+				if(!id && !type){
+					$.getJSON('./assets/json/projects.json', function(data) {
+						 //document.getElementById("onlineCount").innerHTML = data.presence_count;
+						 //document.getElementById("subCount").innerHTML = "0";
+						 $.each(data, function(i, f) {
+							var tblRow = `<header><h2>${f.name}</h2></header>`
+							$(tblRow).appendTo("#content");
+							let typething = f.id
+							$.each(f, function(i, f){
+								if(!f.name) return
+								var project = `<a href="projects.html?id=${f.id}&type=${typething}"><h3>${f.name}${f.comingsoon ? ' (Coming Soon)' : ''}</h3></a><p>${f.description}</p><hr />`
+								$(project).appendTo('#content')
+							})
+						 });
+					   });
+				}
+	
+				if(id && type){
+					$.getJSON('./assets/json/projects.json', function(data) {
+						var tblRow = `<header><h2>${data[type][id].name}${data[type][id].comingsoon ? ' (Coming Soon)' : ''}</h2> </header><p>${data[type][id].description}</p><div id="sc"></div><hr /><a href="${data[type][id].calltoaction}" id="calltoaction" class="button primary disabled"><i class="icon fa-download"> </i>Download</a> <a href="${data[type][id].sourcecode}" id="sourcecode" class="button primary disabled"><i class="icon fa-github"> </i>Source Code</a>`
+						$(tblRow).appendTo("#content");
+
+						$.each(data[type][id].screenshots, function(i, f){
+							$(`<img src="${f}">`).appendTo("#sc")
+						})
+					
+						if(data[type][id].sourcecode) document.getElementById('sourcecode').className = 'button primary'
+						if(data[type][id].calltoaction) document.getElementById('calltoaction').className = 'button primary'
+					});
+				}
+	
+			});
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -44,57 +87,8 @@
 		<!-- Main -->
 			<section id="main" class="wrapper">
 				<div class="inner">
-					<div class="content">
-						<header>
-							<h2>Discord Bots</h2>
-						</header>
-						<h3>Minecraft Bot (renamed from Minecraft Skin Grabber)</h3>
-						<p>Get Minecraft skins, UUIDs, 2b2t info, and more from Discord!</p>
-						<a href="https://discord.com/oauth2/authorize?client_id=739577411716513832&scope=bot&permissions=384064">Invite Minecraft Bot</a>
-						<hr />
-						<h3>ChatFeelings</h3>
-						<p>Show your feelings in chat!</p>
-						<p>Coming Soon!</p>
-						<!-- <a href="https://discord.com/api/oauth2/authorize?client_id=726482203416068166&permissions=10240&scope=bot">Invite ChatFeelings</a> -->
-						<hr />
-						<h3>Newgrounds Radio Bot</h3>
-						<p>Listen to Newgrounds Radio through Discord!</p>
-						<a href="https://discord.com/api/oauth2/authorize?client_id=732092570804551711&permissions=36988992&scope=bot">Invite Newgrounds Radio Bot</a>
-						<hr />
-						<h3>The0Show's Utilites</h3>
-						<p>The bot structure for my Discord bots.</p>
-						<p>This is a private bot, but you can <a href="https://github.com/The0Show/the0show-utilities">check out it's source code.</a></p>
-						<header>
-							<h2>Programs</h2>
-						</header>
-						<h3>Riddle School Legacy Launcher</h3>
-						<p>Launch the v2.0 (Legacy) versions of Riddle School through 1 program!</p>
-						<p>Coming Soon!</p>
-						<header>
-							<h2>Minecraft Stuff</h2>
-						</header>
-						<h3>Launch Plugin</h3>
-						<p>Launch yourself in the air!</p>
-						<a href="https://github.com/The0Show/launch-plugin/releases">Install Launch Plugin for Spigot</a>
-						<hr />
-						<h3>Random Mod</h3>
-						<p>A completely random mod.</p>
-						<a href="https://github.com/The0Show/random-mod/releases">Install Random Mod for Forge</a>
-						<!-- <a href="https://discord.com/api/oauth2/authorize?client_id=726482203416068166&permissions=10240&scope=bot">Invite ChatFeelings</a> -->
-						<hr />
-						<h3>Source-like Mob Grabbing</h3>
-						<p>Source-like Mob Grabbing in Minecraft!</p>
-						<p><a href="https://github.com/The0Show/source-like-mob-grabbing-minecraft/releases">Install the Source-like Mob Grabbing datapack</a></p>
-						<hr />
-						<h3>Minecraft Battle Royale</h3>
-						<p>A Minecraft Battle Royale made with a Datapack.</p>
-						<p><a href="https://github.com/The0Show/minecraft-battle-royale/releases">Install the Battle Royale datapack</a></p>
-						<header>
-							<h2>Web Tools</h2>
-						</header>
-						<h3>Openbox</h3>
-						<p>A mod of Beepbox, an online tool for sketching and sharing instrumental melodies.</p>
-						<p>Openbox is coming soon, but you can <a href="https://github.com/The0Show/openbox">check out it's source code while it's being developed.</a></p>
+					<div id="content" class="content">
+
 					</div>
 				</div>
 			</section>

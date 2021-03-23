@@ -1,0 +1,89 @@
+{
+    "discord-bots": {
+        "name": "Discord Bots",
+        "desc": "All of the Discord bots I made",
+        "id": "discord-bots",
+        "chat-feelings-YJndmxq": {
+            "name": "Chat Feelings",
+            "description": "Show your feelings in chat!",
+            "id": "chat-feelings-YJndmxq",
+            "screenshots": [
+
+            ],
+            "comingsoon": true,
+            "calltoaction": "",
+            "sourcecode": ""
+        },
+        "newgrounds-radio-bot-h9xQFJH": {
+            "name": "Newgrounds Radio Bot",
+            "description": "Listen to Newgrounds Radio through Discord!",
+            "id": "newgrounds-radio-bot-h9xQFJH",
+            "screenshots": [
+                
+            ],
+            "comingsoon": false,
+            "calltoaction": "https://discord.com/api/oauth2/authorize?client_id=732092570804551711&permissions=36988992&scope=bot",
+            "sourcecode": ""
+        },
+        "minecraft-bot-IoH4zbM": {
+            "name": "Minecraft Bot",
+            "description": "Listen to Newgrounds Radio through Discord!",
+            "id": "minecraft-bot-IoH4zbM",
+            "screenshots": [
+
+            ],
+            "comingsoon": false,
+            "calltoaction": "https://top.gg/bot/739577411716513832",
+            "sourcecode": "https://github.com/The0Show/minecraft-bot/"
+        }
+    },
+    "minecraft-stuff": {
+        "name": "Minecraft Stuff",
+        "desc": "Anything I've made with Minecraft.",
+        "id": "minecraft-stuff",
+        "chaos-mod-Xjx8GfL": {
+            "name": "Chaos Mod",
+            "description": "Chaos.",
+            "id": "chaos-mod-Xjx8GfL",
+            "screenshots": [
+
+            ],
+            "comingsoon": true,
+            "calltoaction": "",
+            "sourcecode": ""
+        },
+        "slmg-TXndwiH": {
+            "name": "Source-like Mob Grabbing",
+            "description": "Source-like Mob Grabbing in Minecraft!",
+            "id": "slmg-TXndwiH",
+            "screenshots": [
+
+            ],
+            "comingsoon": false,
+            "calltoaction": "https://github.com/The0Show/source-like-mob-grabbing-minecraft/releases",
+            "sourcecode": "https://github.com/The0Show/source-like-mob-grabbing-minecraft"
+        },
+        "mc-battleroyale-lpLIIgn": {
+            "name": "Minecraft Battle Royale",
+            "description": "A Minecraft Battle Royale made with a Datapack.",
+            "id": "mc-battleroyale-lpLIIgn",
+            "screenshots": [
+
+            ],
+            "comingsoon": false,
+            "calltoaction": "https://github.com/The0Show/minecraft-battle-royale/releases",
+            "sourcecode": "https://github.com/The0Show/minecraft-battle-royale"
+        },
+        "body-swap-2pVF46t": {
+            "name": "Body Swap",
+            "description": "Swap bodies with another player.",
+            "id": "body-swap-2pVF46t",
+            "screenshots": [
+
+            ],
+            "comingsoon": true,
+            "calltoaction": "",
+            "sourcecode": ""
+        }
+    }
+}
