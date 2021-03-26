@@ -85,5 +85,21 @@
             "calltoaction": "",
             "sourcecode": ""
         }
+    },
+    "programs": {
+        "name": "Programs",
+        "desc": "All of the applications I've developed",
+        "id": "programs",
+        "opinions-DNozHlK": {
+            "name": "Opinions",
+            "description": "In this game, you'll be asked a question, and you have to guess what the most voted result is.\n\nWindows only (sorry mac and linux users)",
+            "id": "opinions-DNozHlK",
+            "screenshots": [
+
+            ],
+            "comingsoon": false,
+            "calltoaction": "https://www.dropbox.com/s/dsvxe5hqhxdtltf/opinions.exe?dl=1",
+            "sourcecode": "https://github.com/The0Show/opinions"
+        }
     }
 }
