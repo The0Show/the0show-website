@@ -15,7 +15,50 @@
 		<link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
-	</head>
+	
+
+			<script>
+				const params = new URLSearchParams(window.location.search);
+				var id = params.get("id")
+				var type = params.get("type")
+		
+				$(function() {
+		
+					if(!id){
+						$.getJSON('./assets/json/projects.json', function(data) {
+							 $.each(data, function(i, f) {
+								var tblRow = `<header><h2>${f.name}</h2></header>`
+								$(tblRow).appendTo("#content");
+								let typething = f.id
+								$.each(f, function(i, f){
+									if(!f.name) return
+									var project = `<a href="projects.html?id=${f.id}&type=${typething}"><h3>${f.name}${f.comingsoon ? ' (Coming Soon)' : ''}</h3></a><p>${f.description}</p><hr />`
+									$(project).appendTo('#content')
+								})
+							 });
+						   });
+					}
+		
+					if(id){
+						$.getJSON('./assets/json/projects.json', function(data) {
+							var tblRow = `<header><h2>${data[type][id].name}${data[type][id].comingsoon ? ' (Coming Soon)' : ''}</h2> </header><p>${data[type][id].description}</p><div id="sc"></div><hr /><a href="${data[type][id].calltoaction}" id="calltoaction" class="button primary disabled"><i class="icon fa-download"> </i>Download</a> <a href="${data[type][id].sourcecode}" id="sourcecode" class="button primary disabled"><i class="icon fa-github"> </i>Source Code</a>`
+							$(tblRow).appendTo("#content");
+	
+							$.each(data[type][id].screenshots, function(i, f){
+								$(`<img src="${f}">`).appendTo("#sc")
+							})
+						
+							if(data[type][id].sourcecode) document.getElementById('sourcecode').className = 'button primary'
+							if(data[type][id].calltoaction) document.getElementById('calltoaction').className = 'button primary'
+
+							if(type === 'discord-bots') document.getElementById('calltoaction').innerHTML = '<i class="icon fa-plus"> </i> Invite'
+						});
+					}
+		
+				});
+			</script>
+
+        </head>
 	<body class="is-preload">
 
 		<!-- Header -->
@@ -90,46 +133,5 @@
 			<script src="src/assets/js/breakpoints.min.js"></script>
 			<script src="src/assets/js/util.js"></script>
 			<script src="src/assets/js/main.js"></script>
-
-			<script>
-				const params = new URLSearchParams(window.location.search);
-				var id = params.get("id")
-				var type = params.get("type")
-		
-				$(function() {
-		
-					if(!id){
-						$.getJSON('./assets/json/projects.json', function(data) {
-							 $.each(data, function(i, f) {
-								var tblRow = `<header><h2>${f.name}</h2></header>`
-								$(tblRow).appendTo("#content");
-								let typething = f.id
-								$.each(f, function(i, f){
-									if(!f.name) return
-									var project = `<a href="projects.html?id=${f.id}&type=${typething}"><h3>${f.name}${f.comingsoon ? ' (Coming Soon)' : ''}</h3></a><p>${f.description}</p><hr />`
-									$(project).appendTo('#content')
-								})
-							 });
-						   });
-					}
-		
-					if(id){
-						$.getJSON('./assets/json/projects.json', function(data) {
-							var tblRow = `<header><h2>${data[type][id].name}${data[type][id].comingsoon ? ' (Coming Soon)' : ''}</h2> </header><p>${data[type][id].description}</p><div id="sc"></div><hr /><a href="${data[type][id].calltoaction}" id="calltoaction" class="button primary disabled"><i class="icon fa-download"> </i>Download</a> <a href="${data[type][id].sourcecode}" id="sourcecode" class="button primary disabled"><i class="icon fa-github"> </i>Source Code</a>`
-							$(tblRow).appendTo("#content");
-	
-							$.each(data[type][id].screenshots, function(i, f){
-								$(`<img src="${f}">`).appendTo("#sc")
-							})
-						
-							if(data[type][id].sourcecode) document.getElementById('sourcecode').className = 'button primary'
-							if(data[type][id].calltoaction) document.getElementById('calltoaction').className = 'button primary'
-
-							if(type === 'discord-bots') document.getElementById('calltoaction').innerHTML = '<i class="icon fa-plus"> </i> Invite'
-						});
-					}
-		
-				});
-			</script>
 	</body>
 </html>
